@@ -9,7 +9,7 @@ bool repeating_timer_callback(struct repeating_timer *timer);
 int main()
 {
     stdio_init_all();
-    
+    // Configura os pinos GPIO
     gpio_init(PIN_RED);
     gpio_init(PIN_YELLOW);
     gpio_init(PIN_GREEN);
@@ -19,7 +19,7 @@ int main()
     gpio_set_dir(PIN_GREEN,GPIO_OUT);
 
     struct repeating_timer timer;
-
+    // Configura o timer
     add_repeating_timer_ms(3000,repeating_timer_callback,NULL,&timer);
 
     gpio_put(PIN_RED,1);
